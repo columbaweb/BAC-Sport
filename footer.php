@@ -19,6 +19,9 @@
    <div id="footer-copy">
       <div class="inner-container">
          <p class="grid_4 alpha">© <?php echo date('Y'); ?> Reynolds Digital Ltd - All Rights Reserved</p>
+         <div class="grid_8 omega">
+            <?php wp_nav_menu( array( 'theme_location' => 'footnav' ) ); ?>
+         </div>
       </div>
    </div>   
 </footer>

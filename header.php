@@ -10,13 +10,20 @@
 <head>
 <title><?php wp_title(); ?></title>
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-<meta name="google-translate-customization" content="e5d6bb5eebae058d-34e2279d52f0af78-g7424d9382a4f6003-13"></meta>
+<meta name="google-translate-customization" content="e5d6bb5eebae058d-34e2279d52f0af78-g7424d9382a4f6003-13" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?'.filemtime( get_stylesheet_directory().'/style.css'); ?>" type="text/css" media="all" />
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css' />
 
 <?php wp_enqueue_script('jquery');?>
 <?php wp_head(); ?>
+
+<script>
+   function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+   }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </head> 
 

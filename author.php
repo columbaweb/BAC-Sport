@@ -1,12 +1,13 @@
 <?php get_header(); ?>
+<section id="banner">
+   <div id="banner-title" class="grid_6">
+      <h1>About the Author</h1>
+   </div>   
+   <div class="breadcrumbs"><?php if(function_exists('bcn_display')){bcn_display();}?></div>
+</section>
 
-<div class="grid_8" id="content">
-  <h1>About the Author</h1>
-	<?php
-         $curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
-      ?>      
-      <section class="post-author">
-        
+<div id="content" class="grid_8">
+   <section class="post-author">   
          <h2><?php echo $curauth->nickname; ?></h2>
          <p><?php echo $curauth->user_description; ?></p>
       </section>

@@ -46,7 +46,7 @@ function register_my_menus() {
     array(
       'topnav' => __( 'Top Menu' ),
       'sidenav' => __( 'Side Menu' ),
-      'headnav' => __( 'Header Menu' )
+      'footnav' => __( 'Footer Menu' )
     )
   );
 }
@@ -103,6 +103,21 @@ if(strlen($title) >= ($limit+3)) {
 $title = substr($title, 0, $limit) . $ending; }
 echo $title;
 }
+
+
+// Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
+function wp_pagination()
+{
+    global $wp_query;
+    $big = 999999999;
+    echo paginate_links(array(
+        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages
+    ));
+}
+
 
 remove_filter('term_description','wpautop');
 

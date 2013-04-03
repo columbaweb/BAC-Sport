@@ -13,7 +13,7 @@ blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
 
 /************** STRUCTURE ****************/
 html{border-top:3px solid #0084DE;}
-body{min-width:1020px;font-family:Open Sans,Helvetica,'Trebuchet MS',sans-serif;font-size:14px;line-height:20px;color:#888;background:#f3f3f3;}
+body{min-width:1020px;font-family:Open Sans,Helvetica,'Trebuchet MS',sans-serif;font-size:14px;line-height:20px;color:#888;background:#f3f3f3 url(images/bg.jpg) top left repeat;}
 #wrapper{margin:0 auto;padding-bottom:20px;overflow:hidden;background:#fff;*zoom:1;}
 .inner-container{width:990px;margin:0 auto;overflow:hidden;}
 
@@ -44,10 +44,11 @@ strong,b{font-weight:bold;}
 em,i{font-style:italic;}
 small{font-size:12px;}
 abbr{border-bottom:1px dotted #ccc;cursor:help;}
-blockquote{font-style:italic;margin:0 0 10px 0;padding-left:15px;border-left:5px solid #eee;}
+blockquote{font-style:italic;margin:0 0 10px 0;padding-left:15px;border-left:5px solid #eee;overflow:hidden;}
    blockquote.pull-right{float:right;padding-right:15px;padding-left:0;border-left:0;border-right:5px solid #eee;}
    blockquote footer{font-style:normal;font-size:13px;text-align:right;color:#666;}
-   blockquote small{font-style:normal;color:#666;}
+   blockquote small{float:right;font-style:normal;color:#666;}
+   blockquote.pull-right small{float:none;}
   
 q{}
 cite{}
@@ -106,7 +107,10 @@ img{width:auto\9;height:auto;max-width:100%;vertical-align:middle;}
       #top .social-links #phone {background-position:-160px 0px;}
    #top .subscribe{display:block;width:100px;height:32px;text-indent:-9999px;background:transparent url(images/css-sprite.png) 0 -40px;}      
    
-   #google-translator{width:97px;height:32px;background:transparent url(images/css-sprite.png) -120px -40px;}
+   #google-translator{width:97px;width:auto;height:32px;/*background:transparent url(images/css-sprite.png) -120px -40px;*/background:#000;border-left:1px solid #555;}
+      .goog-te-gadget-simple{background:transparent!important;border:0!important;padding-top:5px!important;}
+      .goog-te-gadget-simple img{display:none!important;}
+      .goog-te-menu-value span{font-family:Open Sans,Helvetica,'Trebuchet MS',sans-serif!important;margin-left:5px!important;}
 
 /************** HEADER ****************/
 header{padding:12px 0 0 0;}
@@ -129,12 +133,10 @@ header{padding:12px 0 0 0;}
 	#megaMenu ul.megaMenu > li.current-category-ancestor > a {color:#fff;background:#009FCF;border-right:0;}
 
 
-
-
-/* = Sidebar Navigation ================================ */
-
-/* = Footer Navigation ================================= */
-
+/************** FOOTER NAVIGATION ****************/
+#menu-footnav{float:right;padding-top:18px;}
+#menu-footnav li{float:left;list-style:none;}
+#menu-footnav a{display:block;color:#888;padding:0 0 0 15px}
 
 /************** CONTENT ***************/
 #content{clear:both;overflow:hidden;position:relative;}
@@ -162,6 +164,10 @@ header{padding:12px 0 0 0;}
 #promo-box{clear:both;padding:20px 0 12px 0;background:#FBFBFB;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC;overflow:hidden;}   
    #promo-box p{float:left;width:740px;font-size:24px;line-height:36px;}
    #promo-box a{float:right;display:block;width:160px;height:50px;text-indent:-9999px;margin:10px 0 0 0;background:transparent url(images/css-sprite.png) 0 -200px no-repeat;}
+   
+/************** BANNER ***************/
+#banner{clear:both;margin:0 0 20px 0;padding:20px 0 12px 0;background:#FBFBFB;border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC;overflow:hidden;}
+   .breadcrumbs{float:right;width:460px;font-size:12px;margin:10px 15px 0 15px;text-align:right;}
 
 
 
@@ -202,8 +208,8 @@ footer{font-size:13px;padding:30px 0 0 0;color:color:#919191;background:#1C1C1C;
 .iphorm select option {width:300px!important;_width: auto;//ie6 hack}
 
 /************** SEARCH FORMS  ****************/
-#searchform{float:right;width:159px;height:32px;border-right:1px solid #878787;}
-   #searchform input#s{width:128px;height:32px;padding:0 0 0 30px;color:#ccc;background:#000 url(images/css-sprite.png) 0 -80px;border:0;}  
+#searchform{float:right;width:159px;height:30px;border-right:1px solid #878787;}
+   #searchform input#s{width:128px;height:25px;display:block;overflow:auto;padding:5px 0 0 30px;color:#ccc;background:#000 url(images/css-sprite.png) 0 -80px;border:0;}  
    #searchform #searchsubmit{display:none;}
    
 #content #searchform{float:left;}   
