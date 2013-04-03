@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div id="content" class="grid_8">
-     <h1>Search Results</h1>
+     <h1>Search Results for: <?php the_search_query(); ?></h1>
      <?php if (have_posts()) : ?>
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	     <div <?php post_class('p_thumb'); ?> >
