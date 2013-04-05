@@ -1,17 +1,22 @@
 <?php get_header(); ?>
 
-<section id="banner">
-   <div id="banner-title" class="grid_6">
-      <h1><?php single_cat_title(); ?></h1>
-      <?php echo category_description(); ?>
+<div id="slider">
+   <?php echo get_new_royalslider(3); ?>
+</div>
+
+<h1 class="push_12"><?php single_cat_title(); ?></h1>
+<section id="banner" class="push_12">
+   <div id="banner-title">
+      <span class="bcr"><?php if(function_exists('bcn_display')){bcn_display();}?></span>
    </div>   
-   <div class="breadcrumbs"><?php if(function_exists('bcn_display')){bcn_display();}?></div>
 </section>
 
-<div id="content" class="grid_8">
+<div id="content" class="grid_9">
    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <div <?php post_class('p_thumb'); ?> >
-         <h2><?php the_title(); ?></h2>
+      <div <?php post_class('post-excerpt'); ?> >
+         <?php if(has_post_thumbnail()) :?><a class="post-thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a><?php endif;?>    
+         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>	           	
+         <?php the_excerpt(); ?>        
          <div class="meta">
             <span class="categories">
                <?php foreach((get_the_category()) as $category) {
@@ -20,18 +25,21 @@
                   }
                } ?>
             </span>
-            <span class="comments"><?php comments_popup_link('No Comments', '1 Comment', '% Comments'); ?> | </span>
             <span class="date"><?php the_time('F jS, Y') ?> | </span>
             <span class="author">by <?php the_author_posts_link(); ?> </span>
-         </div>		           	
-         <?php the_excerpt(); ?>
-         <a class="read-more" href="<?php the_permalink(); ?>">Read More</a>
+            <a class="read-more" href="<?php the_permalink(); ?>">Read More &gt;</a>
+         </div>	       
+         
+         
+         
+         
       </div>
-   <?php endwhile; endif; wp_reset_query(); ?>
+   <?php endwhile; endif; ?>
    
    <div class="pagination">
-      <?php wp_pagination(); ?>
+      <?php wp_pagenavi(); ?>
    </div>
+   
 	
 </div>
 

@@ -44,60 +44,6 @@ function st_button( $atts, $content = null ) {
 add_shortcode('button', 'st_button');
 
 
-// Tabs
-add_shortcode( 'tabgroup', 'st_tabgroup' );
-
-function st_tabgroup( $atts, $content ){
-	
-$GLOBALS['tab_count'] = 0;
-do_shortcode( $content );
-
-if( is_array( $GLOBALS['tabs'] ) ){
-	
-foreach( $GLOBALS['tabs'] as $tab ){
-$tabs[] = '<li><a href="#'.$tab['id'].'">'.$tab['title'].'</a></li>';
-$panes[] = '<div id="'.$tab['id'].'">'.$tab['content'].'</div>';
-}
-$return = "\n".'<!-- the tabs --><div id="tabs"><ul>'.implode( "\n", $tabs ).'</ul>'."\n".'<!-- tab "panes" -->'.implode( "\n", $panes ).'</div>'."\n";
-}
-return $return;
-
-}
-
-add_shortcode( 'tab', 'st_tab' );
-function st_tab( $atts, $content ){
-extract(shortcode_atts(array(
-	'title' => '%d',
-	'id' => '%d'
-), $atts));
-
-$x = $GLOBALS['tab_count'];
-$GLOBALS['tabs'][$x] = array(
-	'title' => sprintf( $title, $GLOBALS['tab_count'] ),
-	'content' =>  do_shortcode($content),
-	'id' =>  $id );
-
-$GLOBALS['tab_count']++;
-}
-
-
-// Toggle
-function st_toggle( $atts, $content = null ) {
-	extract(shortcode_atts(array(
-		 'title' => '',
-		 'style' => 'accordion-collapsed'
-    ), $atts));
-	output;	
-	$output .= '<div id="'.$style.'"><div class="group"><h3>' .$title. '</h3>';
-	$output .= '<div class="toggle_container">';
-	$output .= do_shortcode($content);
-	$output .= '</div></div></div>';
-	return $output;
-	}
-add_shortcode('toggle', 'st_toggle');
-
-
-
 // Latest Posts
 
 function st_latest($atts, $content = null) {

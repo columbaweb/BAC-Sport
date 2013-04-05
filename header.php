@@ -13,8 +13,9 @@
 <meta name="google-translate-customization" content="e5d6bb5eebae058d-34e2279d52f0af78-g7424d9382a4f6003-13" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); echo '?'.filemtime( get_stylesheet_directory().'/style.css'); ?>" type="text/css" media="all" />
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css' />
-
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="//use.typekit.net/jev3rny.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <?php wp_enqueue_script('jquery');?>
 <?php wp_head(); ?>
 
@@ -24,6 +25,17 @@
    }
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script>
+   jQuery(function() {
+      jQuery( "#tabs" ).tabs({  
+         x: [{opacity:'toggle', duration:'normal'},   // hide option
+         {opacity:'toggle', duration:'fast'}]
+      });
+   });
+</script>
+
 
 </head> 
 
